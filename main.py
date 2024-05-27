@@ -16,6 +16,7 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 # For manually setting the GPT model
 llm = OpenAI(model="gpt-3.5-turbo", temperature=0.5, max_tokens=1000)
 service_context = ServiceContext.from_defaults(llm=llm, chunk_size=1000, chunk_overlap=20)
+# The above two lines can be ignored. In that case, the defauly llm model will be used
 
 query = input("Ask your question: ")
 
@@ -34,6 +35,6 @@ def dynamic_retrieval(number_of_results):
     pprint_response(response, show_source=True)
 
 # top_response()
-dynamic_retrieval(3)
+dynamic_retrieval(3) # Returning top 3 reponses
 
 
